@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Air Dream Travel & Tourism | Dubai Flights, Visas, Tours & Umrah</title>
+  <meta name="description" content="Your trusted travel partner in Dubai for flights, visas, tours, Umrah and unforgettable experiences worldwide.">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ==========================================
+       PRIMARY NAVIGATION BAR
+       ========================================== -->
+  <nav class="navbar">
+    <div class="container navbar-content">
+      <a href="#" class="brand-logo">
+        <div class="brand-icon">
+          <i class="fa-solid fa-plane"></i>
+        </div>
+        <div class="brand-text">
+          <div class="brand-title">Air Dream <span>Travel & Tourism</span></div>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#" class="nav-link active">Home</a></li>
+        <li><a href="#visas-section" class="nav-link">Visas</a></li>
+        <li><a href="#services-section" class="nav-link">Flights</a></li>
+        <li><a href="#exp-section" class="nav-link">UAE Tours</a></li>
+        <li><a href="#services-section" class="nav-link">Umrah</a></li>
+        <li><a href="#why-section" class="nav-link">About Us</a></li>
+        <li><a href="#footer-section" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button onclick="openWhatsAppDirect()" class="btn-whatsapp">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+        </button>
+        <button onclick="openAdminLoginModal()" class="admin-nav-btn">
+          <i class="fa-solid fa-user-gear"></i> Admin Portal
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==========================================
+       HERO BANNER SECTION
+       ========================================== -->
+  <section id="hero-section" class="hero-section">
+    <div class="container hero-content">
+      <h1 id="hero-title" class="hero-title">
+        Your Journey Starts With <span>Air Dream</span>
+      </h1>
+      <p id="hero-subtitle" class="hero-subtitle">
+        Flights • Visas • Tours • Umrah — All in One Place
+      </p>
+      <div class="hero-buttons">
+        <a href="#services-section" class="btn-primary-glow">
+          Explore Services <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <button onclick="openWhatsAppDirect()" class="btn-outline-glow">
+          <i class="fa-brands fa-whatsapp" style="color:var(--whatsapp-green);"></i> Chat on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="hero-overlay-cloud"></div>
+  </section>
+
+  <!-- ==========================================
+       OUR SERVICES SECTION
+       ========================================== -->
+  <section id="services-section" class="section-padding">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Our Services</h2>
+        <div class="section-title-divider">
+          <span></span>
+          <i class="fa-solid fa-plane"></i>
+          <span></span>
+        </div>
+      </div>
+      <div id="services-grid" class="services-grid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       POPULAR VISA SERVICES SECTION
+       ========================================== -->
+  <section id="visas-section" class="section-padding" style="background-color:#ffffff;">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Popular Visa Services</h2>
+        <div class="section-title-divider">
+          <span></span>
+          <i class="fa-solid fa-passport"></i>
+          <span></span>
+        </div>
+      </div>
+      <div id="visas-grid" class="visas-grid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       WHY CHOOSE AIR DREAM SECTION
+       ========================================== -->
+  <section id="why-section" class="section-padding">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Why Choose Air Dream?</h2>
+        <div class="section-title-divider">
+          <span></span>
+          <i class="fa-solid fa-shield-halved"></i>
+          <span></span>
+        </div>
+      </div>
+      <div id="why-grid" class="why-grid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       UAE EXPERIENCES SECTION
+       ========================================== -->
+  <section id="exp-section" class="section-padding" style="background-color:#ffffff;">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">UAE Experiences</h2>
+        <div class="section-title-divider">
+          <span></span>
+          <i class="fa-solid fa-synagogue"></i>
+          <span></span>
+        </div>
+      </div>
+      <div id="exp-grid" class="exp-grid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       LATEST TRAVEL DEALS SECTION
+       ========================================== -->
+  <section id="deals-section" class="section-padding">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Latest Travel Deals</h2>
+        <div class="section-title-divider">
+          <span></span>
+          <i class="fa-solid fa-tags"></i>
+          <span></span>
+        </div>
+      </div>
+      <div id="deals-grid" class="deals-grid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       WHATSAPP CALL TO ACTION BANNER
+       ========================================== -->
+  <section class="cta-banner">
+    <div class="container cta-banner-content">
+      <div class="cta-left">
+        <div class="cta-wa-icon">
+          <i class="fa-brands fa-whatsapp"></i>
+        </div>
+        <div>
+          <div class="cta-title">Planning Your Next Trip?</div>
+          <div class="cta-subtitle">Talk to Our Travel Team Today</div>
+        </div>
+      </div>
+      <button onclick="openWhatsAppDirect()" class="btn-phone-large">
+        <i class="fa-solid fa-phone-volume"></i> <span class="js-phone">+971 58 833 8927</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       FOOTER SECTION
+       ========================================== -->
+  <footer id="footer-section" class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Column 1: Brand Info -->
+        <div>
+          <div class="brand-logo" style="margin-bottom:16px;">
+            <div class="brand-icon">
+              <i class="fa-solid fa-plane"></i>
+            </div>
+            <div class="brand-title" style="color:#ffffff;">Air Dream <span>Travel & Tourism</span></div>
+          </div>
+          <p class="js-about-blurb" style="margin-bottom:16px; font-size:13px; line-height:1.6;">
+            Your trusted travel partner in Dubai for flights, visas, tours, Umrah and unforgettable experiences worldwide.
+          </p>
+          <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="javascript:void(0)" onclick="openWhatsAppDirect()" class="social-icon"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <!-- Column 2: Contact Us -->
+        <div>
+          <div class="footer-col-title">Contact Us</div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span class="js-address">Office 401, Al Zarouni Building, Al Rigga, Dubai, UAE</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <span class="js-phone">+971 58 833 8927</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <span class="js-email">info@airdreamtravels.com</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-globe"></i>
+            <span>www.airdreamtravels.com</span>
+          </div>
+        </div>
+
+        <!-- Column 3: Our Services -->
+        <div>
+          <div class="footer-col-title">Our Services</div>
+          <ul class="footer-links">
+            <li><a href="#services-section">Flights</a></li>
+            <li><a href="#visas-section">Visas</a></li>
+            <li><a href="#exp-section">UAE Tours</a></li>
+            <li><a href="#services-section">Umrah Packages</a></li>
+            <li><a href="#services-section">Travel Insurance</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Useful Links -->
+        <div>
+          <div class="footer-col-title">Useful Links</div>
+          <ul class="footer-links">
+            <li><a href="#why-section">About Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Refund Policy</a></li>
+            <li><a href="#">FAQs</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2025 Air Dream Travel & Tourism. All Rights Reserved.</div>
+        <div>Designed with <i class="fa-solid fa-heart" style="color:#ef4444;"></i> in Dubai</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Quick Button -->
+  <a href="javascript:void(0)" onclick="openWhatsAppDirect()" class="floating-wa-btn" title="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Toast Notification Box -->
+  <div id="toast-msg" class="toast-msg">State updated</div>
+
+
+  <!-- ==========================================
+       ADMIN LOGIN MODAL (ID: admin@123 / Pass: admin@123)
+       ========================================== -->
+  <div id="admin-login-modal" class="modal-overlay">
+    <div class="modal-card">
+      <button onclick="closeAdminLoginModal()" class="modal-close-btn"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-header-title"><i class="fa-solid fa-lock" style="color:var(--accent-gold);"></i> Admin Portal</div>
+      <div class="modal-header-sub">Please enter Admin ID and Password to manage site data.</div>
+
+      <form onsubmit="handleAdminLogin(event)">
+        <div class="form-group">
+          <label class="form-label">Admin ID / Email</label>
+          <input type="text" id="admin-id-input" class="form-input" placeholder="e.g. admin@123" required value="admin@123">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <input type="password" id="admin-pass-input" class="form-input" placeholder="Enter password" required value="admin@123">
+        </div>
+        <button type="submit" class="btn-block-primary" style="margin-top:20px;">
+          Login to Admin Panel <i class="fa-solid fa-arrow-right-to-bracket"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- ==========================================
+       ADMIN DASHBOARD MODAL DRAWER
+       ========================================== -->
+  <div id="admin-dashboard-modal" class="modal-overlay">
+    <div class="admin-modal-card">
+      
+      <div class="admin-header">
+        <div class="admin-header-title">
+          <i class="fa-solid fa-sliders" style="color:var(--accent-gold);"></i>
+          <span>Air Dream Admin Control Panel</span>
+        </div>
+        <div style="display:flex; gap:12px; align-items:center;">
+          <button onclick="resetSiteDataToDefault()" class="btn-outline-glow" style="padding:6px 14px; font-size:12px; background:#fff;">
+            <i class="fa-solid fa-rotate-left"></i> Reset Defaults
+          </button>
+          <button onclick="handleAdminLogout()" class="modal-close-btn" style="position:static; background:#ef4444; color:#fff;" title="Logout">
+            <i class="fa-solid fa-power-off"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="admin-body">
+        <!-- Sidebar Navigation Tabs -->
+        <div class="admin-sidebar">
+          <button class="admin-tab-btn active" onclick="switchAdminTab('general', this)">
+            <i class="fa-solid fa-gear"></i> <span>General & Hero</span>
+          </button>
+          <button class="admin-tab-btn" onclick="switchAdminTab('services', this)">
+            <i class="fa-solid fa-plane"></i> <span>Our Services</span>
+          </button>
+          <button class="admin-tab-btn" onclick="switchAdminTab('visas', this)">
+            <i class="fa-solid fa-passport"></i> <span>Popular Visas</span>
+          </button>
+          <button class="admin-tab-btn" onclick="switchAdminTab('exp', this)">
+            <i class="fa-solid fa-car-side"></i> <span>UAE Experiences</span>
+          </button>
+          <button class="admin-tab-btn" onclick="switchAdminTab('deals', this)">
+            <i class="fa-solid fa-tags"></i> <span>Travel Deals</span>
+          </button>
+          <button class="admin-tab-btn" onclick="switchAdminTab('inquiries', this)">
+            <i class="fa-solid fa-inbox"></i> <span>Inquiries</span>
+          </button>
+        </div>
+
+        <!-- Content Area -->
+        <div class="admin-content-area">
+          
+          <!-- TAB 1: General Info & Hero -->
+          <div id="tab-general" class="admin-tab-pane active">
+            <h3 style="margin-bottom:16px;">Edit General Site Info & Hero Banner</h3>
+            <form onsubmit="saveAdminGeneralInfo(event)">
+              <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:16px;">
+                <div class="form-group">
+                  <label class="form-label">Contact Phone Number</label>
+                  <input type="text" id="adm-phone" class="form-input" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">WhatsApp Number (e.g. +971588338927)</label>
+                  <input type="text" id="adm-whatsapp" class="form-input" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Email Address</label>
+                  <input type="email" id="adm-email" class="form-input" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Office Address</label>
+                  <input type="text" id="adm-address" class="form-input" required>
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-top:16px;">
+                <label class="form-label">Hero Banner Title</label>
+                <input type="text" id="adm-hero-title" class="form-input" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Hero Banner Subtitle</label>
+                <input type="text" id="adm-hero-sub" class="form-input" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Hero Background Image URL</label>
+                <input type="text" id="adm-hero-bg" class="form-input" required>
+              </div>
+
+              <button type="submit" class="btn-block-primary" style="margin-top:16px; max-width:240px;">
+                <i class="fa-solid fa-floppy-disk"></i> Save General Info
+              </button>
+            </form>
+          </div>
+
+          <!-- TAB 2: Our Services -->
+          <div id="tab-services" class="admin-tab-pane">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+              <h3>Manage Our Services</h3>
+              <button onclick="addAdminService()" class="btn-primary-glow" style="padding:6px 16px; font-size:13px;">
+                <i class="fa-solid fa-plus"></i> Add Service
+              </button>
+            </div>
+            <div id="adm-services-grid" class="admin-card-grid"></div>
+          </div>
+
+          <!-- TAB 3: Popular Visas -->
+          <div id="tab-visas" class="admin-tab-pane">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+              <h3>Manage Popular Visa Services</h3>
+              <button onclick="addAdminVisa()" class="btn-primary-glow" style="padding:6px 16px; font-size:13px;">
+                <i class="fa-solid fa-plus"></i> Add Visa Service
+              </button>
+            </div>
+            <div id="adm-visas-grid" class="admin-card-grid"></div>
+          </div>
+
+          <!-- TAB 4: UAE Experiences -->
+          <div id="tab-exp" class="admin-tab-pane">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+              <h3>Manage UAE Experiences</h3>
+              <button onclick="addAdminExperience()" class="btn-primary-glow" style="padding:6px 16px; font-size:13px;">
+                <i class="fa-solid fa-plus"></i> Add Experience
+              </button>
+            </div>
+            <div id="adm-exp-grid" class="admin-card-grid"></div>
+          </div>
+
+          <!-- TAB 5: Travel Deals -->
+          <div id="tab-deals" class="admin-tab-pane">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+              <h3>Manage Latest Travel Deals</h3>
+              <button onclick="addAdminDeal()" class="btn-primary-glow" style="padding:6px 16px; font-size:13px;">
+                <i class="fa-solid fa-plus"></i> Add Deal
+              </button>
+            </div>
+            <div id="adm-deals-grid" class="admin-card-grid"></div>
+          </div>
+
+          <!-- TAB 6: Inquiries -->
+          <div id="tab-inquiries" class="admin-tab-pane">
+            <h3>Customer Booking Inquiries</h3>
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Customer Name & Contact</th>
+                  <th>Service Requested</th>
+                  <th>Message</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="adm-inquiries-tbody"></tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ==========================================
+       CUSTOMER INQUIRY / BOOKING MODAL
+       ========================================== -->
+  <div id="inquiry-modal" class="modal-overlay">
+    <div class="modal-card">
+      <button onclick="closeInquiryModal()" class="modal-close-btn"><i class="fa-solid fa-xmark"></i></button>
+      <div id="inquiry-modal-title" class="modal-header-title">Send Travel Inquiry</div>
+      <div class="modal-header-sub">Fill out the details below and our Dubai travel experts will contact you immediately.</div>
+
+      <form onsubmit="handleInquirySubmit(event)">
+        <input type="hidden" id="inquiry-service-input" value="General Inquiry">
+        <div class="form-group">
+          <label class="form-label">Your Full Name</label>
+          <input type="text" id="inquiry-name" class="form-input" placeholder="e.g. John Smith" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone / WhatsApp Number</label>
+          <input type="tel" id="inquiry-phone" class="form-input" placeholder="e.g. +971 50 123 4567" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Travel Date / Notes (Optional)</label>
+          <textarea id="inquiry-msg" class="form-textarea" rows="3" placeholder="Tell us your target travel dates or specific questions..."></textarea>
+        </div>
+        <button type="submit" class="btn-block-primary" style="margin-top:16px;">
+          Submit Inquiry <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Main Application Script -->
+  <script src="app.js"></script>
+</body>
+</html>

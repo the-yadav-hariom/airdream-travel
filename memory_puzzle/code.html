@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Amour - Memory Puzzle</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Plus+Jakarta+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#70343e",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#7b5455",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#eae8e4",
+                        "tertiary-container": "#f1cb00",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#504444",
+                        "on-surface": "#1b1c1a",
+                        "on-tertiary-fixed-variant": "#544600",
+                        "secondary-fixed-dim": "#ffb2bc",
+                        "secondary-container": "#feaab6",
+                        "on-secondary-fixed": "#3a0915",
+                        "tertiary": "#705d00",
+                        "inverse-surface": "#30312e",
+                        "on-primary-fixed": "#2f1314",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#675600",
+                        "primary-container": "#f4c2c2",
+                        "surface-variant": "#e4e2de",
+                        "primary-fixed": "#ffdad9",
+                        "tertiary-fixed": "#ffe16d",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#f5f3ef",
+                        "inverse-on-surface": "#f2f0ed",
+                        "tertiary-fixed-dim": "#e9c400",
+                        "inverse-primary": "#ecbaba",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#221b00",
+                        "secondary-fixed": "#ffd9dd",
+                        "on-error": "#ffffff",
+                        "primary": "#7b5455",
+                        "on-secondary-container": "#7a3c46",
+                        "outline-variant": "#d4c2c2",
+                        "surface-dim": "#dbdad6",
+                        "outline": "#827473",
+                        "on-primary-container": "#734e4e",
+                        "secondary": "#8c4b55",
+                        "primary-fixed-dim": "#ecbaba",
+                        "surface-container": "#efeeea",
+                        "background": "#fbf9f5",
+                        "on-background": "#1b1c1a",
+                        "surface-bright": "#fbf9f5",
+                        "surface-container-highest": "#e4e2de",
+                        "on-primary-fixed-variant": "#613d3e",
+                        "surface": "#fbf9f5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "80px",
+                        "gutter": "24px",
+                        "unit": "8px",
+                        "container-max": "1200px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "label-caps": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "display-lg": ["Playfair Display"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg-mobile": ["36px", { "lineHeight": "1.2", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .puzzle-board {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 2px;
+            width: 100%;
+            max-width: 600px;
+            aspect-ratio: 1.79;
+            background-color: #fbf9f5;
+            border: 1px solid #ffb2bc;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(123, 84, 85, 0.08);
+            position: relative;
+        }
+
+        .puzzle-piece {
+            background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCuWLdnA4DPn9IdTy6YbfbmL42Z9NhJ_8dZ9YhSp6ASlxqKr8Hy2f2wPw6flcjgyiXRWOTqO_2LPV5Bno8PP9VPmlTuoYrHFRAMMsptWuKk3-RA_6bDtYWhvhy3diSxkOebuodLWOVpqspALKrrMOaPYp3q4-B5qjaW9oaUjggxltejP4rVGuaq87YGkSmV9TshDAJ9K6mqVvl-MIazjDxUw1Od008IgV044aY1eP1ZKZ8tkqQPNunG');
+            background-size: 300% 300%;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+        }
+        
+        .puzzle-piece:hover {
+            z-index: 10;
+            box-shadow: 0 0 10px rgba(255, 178, 188, 0.5);
+        }
+
+        .empty-slot {
+            background: none;
+            background-color: transparent;
+            cursor: default;
+        }
+
+        .confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen font-body-md overflow-x-hidden">
+<!-- Ambient Background Lighting -->
+<div class="fixed inset-0 pointer-events-none -z-10" style="background: radial-gradient(circle at 50% 30%, rgba(255, 218, 217, 0.3) 0%, rgba(251, 249, 245, 1) 70%);"></div>
+<!-- TopAppBar Shell (Hidden on Linear Flow, but keeping structure per JSON for consistency if needed, though suppressed by logic) -->
+<!-- Suppressed TopAppBar per Semantic Shell Mandate (Linear Flow/Task Focused) -->
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-gutter pt-8 pb-32 min-h-screen flex flex-col items-center justify-center">
+<!-- Progress Bar (Page 2 of 5) -->
+<div class="w-full max-w-md mb-12 flex flex-col items-center">
+<p class="font-label-caps text-label-caps text-primary mb-2 uppercase tracking-widest">Chapter 2 of 5</p>
+<div class="w-full h-1 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-1000 ease-out" style="width: 40%;"></div>
+</div>
+</div>
+<!-- Header -->
+<div class="text-center mb-10 max-w-2xl">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-4">Piece by Piece</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Slide the pieces to reveal one of my favorite memories with you.</p>
+</div>
+<!-- Puzzle Container -->
+<div class="relative w-full flex flex-col items-center justify-center">
+<div class="puzzle-board mb-8" id="puzzle-board">
+<!-- Pieces injected via JS -->
+</div>
+<!-- Success State Overlay (Hidden initially) -->
+<div class="hidden flex flex-col items-center justify-center text-center opacity-0 transition-opacity duration-700 absolute inset-0 bg-background/90 backdrop-blur-sm z-20 rounded-lg" id="success-state">
+<span class="material-symbols-outlined text-primary text-6xl mb-4" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<p class="font-headline-md text-headline-md text-on-background mb-2">Solved!</p>
+<p class="font-body-lg text-body-lg text-primary-container max-w-sm">"Remember this day? It's one of my favorites."</p>
+</div>
+<!-- Reference Image (Optional hint) -->
+<div class="mt-4 flex flex-col items-center">
+<button class="flex items-center gap-2 text-secondary font-label-caps text-label-caps uppercase hover:text-primary transition-colors" id="hint-btn">
+<span class="material-symbols-outlined text-sm">visibility</span>
+                    Show Hint
+                </button>
+<div class="hidden mt-4 opacity-0 transition-opacity duration-300" id="hint-img-container">
+<img alt="Reference" class="w-64 rounded-md shadow-sm border border-secondary-fixed-dim" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuWLdnA4DPn9IdTy6YbfbmL42Z9NhJ_8dZ9YhSp6ASlxqKr8Hy2f2wPw6flcjgyiXRWOTqO_2LPV5Bno8PP9VPmlTuoYrHFRAMMsptWuKk3-RA_6bDtYWhvhy3diSxkOebuodLWOVpqspALKrrMOaPYp3q4-B5qjaW9oaUjggxltejP4rVGuaq87YGkSmV9TshDAJ9K6mqVvl-MIazjDxUw1Od008IgV044aY1eP1ZKZ8tkqQPNunG"/>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="mt-12 flex justify-center w-full max-w-md">
+<button class="px-8 py-3 bg-surface-variant text-on-surface-variant font-label-caps text-label-caps uppercase tracking-widest rounded-full shadow-sm transition-all duration-300 cursor-not-allowed flex items-center gap-2" disabled="" id="next-btn">
+                Continue
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</main>
+<canvas class="confetti-canvas" id="confetti-canvas"></canvas>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const board = document.getElementById('puzzle-board');
+            const size = 3;
+            let pieces = [];
+            const emptyPos = { row: size - 1, col: size - 1 };
+            
+            // Initialize puzzle
+            function initPuzzle() {
+                let count = 0;
+                for (let r = 0; r < size; r++) {
+                    for (let c = 0; c < size; c++) {
+                        if (r === size - 1 && c === size - 1) {
+                            // Empty slot
+                            const emptyDiv = document.createElement('div');
+                            emptyDiv.className = 'empty-slot';
+                            emptyDiv.dataset.row = r;
+                            emptyDiv.dataset.col = c;
+                            board.appendChild(emptyDiv);
+                            pieces.push(null);
+                        } else {
+                            const piece = document.createElement('div');
+                            piece.className = 'puzzle-piece';
+                            piece.dataset.row = r;
+                            piece.dataset.col = c;
+                            piece.dataset.correctRow = r;
+                            piece.dataset.correctCol = c;
+                            
+                            // Set background position
+                            const x = c * (100 / (size - 1));
+                            const y = r * (100 / (size - 1));
+                            piece.style.backgroundPosition = `${x}% ${y}%`;
+                            
+                            piece.addEventListener('click', () => movePiece(piece));
+                            board.appendChild(piece);
+                            pieces.push(piece);
+                        }
+                    }
+                }
+                shuffle();
+            }
+
+            function getIndex(r, c) {
+                return r * size + c;
+            }
+
+            function movePiece(piece) {
+                const r = parseInt(piece.dataset.row);
+                const c = parseInt(piece.dataset.col);
+                
+                // Check if adjacent to empty
+                if ((Math.abs(r - emptyPos.row) === 1 && c === emptyPos.col) || 
+                    (Math.abs(c - emptyPos.col) === 1 && r === emptyPos.row)) {
+                    
+                    // Swap logic in DOM grid (simplified by reordering based on data attributes)
+                    // For a pure CSS grid, we just swap grid areas or re-render based on an array
+                    const pieceIndex = pieces.indexOf(piece);
+                    const emptyIndex = getIndex(emptyPos.row, emptyPos.col);
+                    
+                    // Update dataset
+                    piece.dataset.row = emptyPos.row;
+                    piece.dataset.col = emptyPos.col;
+                    
+                    emptyPos.row = r;
+                    emptyPos.col = c;
+                    
+                    // Update array and DOM order
+                    renderBoard();
+                    checkWin();
+                }
+            }
+
+            function shuffle() {
+                // Simple shuffle by making random valid moves
+                for (let i = 0; i < 100; i++) {
+                    const validMoves = [];
+                    pieces.forEach(p => {
+                        if(p) {
+                            const r = parseInt(p.dataset.row);
+                            const c = parseInt(p.dataset.col);
+                            if ((Math.abs(r - emptyPos.row) === 1 && c === emptyPos.col) || 
+                                (Math.abs(c - emptyPos.col) === 1 && r === emptyPos.row)) {
+                                validMoves.push(p);
+                            }
+                        }
+                    });
+                    const randomMove = validMoves[Math.floor(Math.random() * validMoves.length)];
+                    if(randomMove) {
+                        const r = parseInt(randomMove.dataset.row);
+                        const c = parseInt(randomMove.dataset.col);
+                        randomMove.dataset.row = emptyPos.row;
+                        randomMove.dataset.col = emptyPos.col;
+                        emptyPos.row = r;
+                        emptyPos.col = c;
+                    }
+                }
+                renderBoard();
+            }
+
+            function renderBoard() {
+                // Sort pieces based on current row/col and append to board
+                const allNodes = Array.from(board.children);
+                allNodes.sort((a, b) => {
+                    const aRow = a.dataset.row !== undefined ? parseInt(a.dataset.row) : emptyPos.row;
+                    const aCol = a.dataset.col !== undefined ? parseInt(a.dataset.col) : emptyPos.col;
+                    const bRow = b.dataset.row !== undefined ? parseInt(b.dataset.row) : emptyPos.row;
+                    const bCol = b.dataset.col !== undefined ? parseInt(b.dataset.col) : emptyPos.col;
+                    
+                    return (aRow * size + aCol) - (bRow * size + bCol);
+                });
+                
+                allNodes.forEach(node => board.appendChild(node));
+            }
+
+            function checkWin() {
+                let isWin = true;
+                const domPieces = board.querySelectorAll('.puzzle-piece');
+                domPieces.forEach(p => {
+                    if (p.dataset.row !== p.dataset.correctRow || p.dataset.col !== p.dataset.correctCol) {
+                        isWin = false;
+                    }
+                });
+
+                if (isWin) {
+                    triggerWinState();
+                }
+            }
+
+            function triggerWinState() {
+                // Show original image fully
+                board.innerHTML = `<img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuWLdnA4DPn9IdTy6YbfbmL42Z9NhJ_8dZ9YhSp6ASlxqKr8Hy2f2wPw6flcjgyiXRWOTqO_2LPV5Bno8PP9VPmlTuoYrHFRAMMsptWuKk3-RA_6bDtYWhvhy3diSxkOebuodLWOVpqspALKrrMOaPYp3q4-B5qjaW9oaUjggxltejP4rVGuaq87YGkSmV9TshDAJ9K6mqVvl-MIazjDxUw1Od008IgV044aY1eP1ZKZ8tkqQPNunG" class="w-full h-full object-cover" />`;
+                
+                const successState = document.getElementById('success-state');
+                successState.classList.remove('hidden');
+                setTimeout(() => {
+                    successState.classList.remove('opacity-0');
+                    successState.classList.add('opacity-100');
+                }, 100);
+
+                const nextBtn = document.getElementById('next-btn');
+                nextBtn.disabled = false;
+                nextBtn.classList.remove('bg-surface-variant', 'text-on-surface-variant', 'cursor-not-allowed');
+                nextBtn.classList.add('bg-gradient-to-r', 'from-primary', 'to-secondary', 'text-on-primary', 'shadow-md', 'hover:scale-105', 'cursor-pointer');
+                
+                fireConfetti();
+            }
+
+            // Hint logic
+            const hintBtn = document.getElementById('hint-btn');
+            const hintImg = document.getElementById('hint-img-container');
+            hintBtn.addEventListener('click', () => {
+                hintImg.classList.toggle('hidden');
+                setTimeout(() => {
+                    hintImg.classList.toggle('opacity-0');
+                    hintImg.classList.toggle('opacity-100');
+                }, 10);
+            });
+
+            // Simple Confetti
+            function fireConfetti() {
+                const canvas = document.getElementById('confetti-canvas');
+                const ctx = canvas.getContext('2d');
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+
+                const particles = [];
+                const colors = ['#f4c2c2', '#ffb2bc', '#7b5455', '#f1cb00'];
+
+                for (let i = 0; i < 100; i++) {
+                    particles.push({
+                        x: canvas.width / 2,
+                        y: canvas.height / 2,
+                        r: Math.random() * 6 + 2,
+                        dx: Math.random() * 10 - 5,
+                        dy: Math.random() * -10 - 5,
+                        color: colors[Math.floor(Math.random() * colors.length)]
+                    });
+                }
+
+                function animate() {
+                    requestAnimationFrame(animate);
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    particles.forEach((p, index) => {
+                        p.x += p.dx;
+                        p.y += p.dy;
+                        p.dy += 0.2; // gravity
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                        ctx.fillStyle = p.color;
+                        ctx.fill();
+                        
+                        if(p.y > canvas.height) particles.splice(index, 1);
+                    });
+                }
+                animate();
+            }
+
+            initPuzzle();
+        });
+    </script>
+</body></html>

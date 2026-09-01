@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Grand Finale</title>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-fixed-variant": "#70343e",
+                      "error-container": "#ffdad6",
+                      "surface-tint": "#7b5455",
+                      "on-tertiary": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "surface-container-high": "#eae8e4",
+                      "tertiary-container": "#f1cb00",
+                      "surface-container-lowest": "#ffffff",
+                      "on-surface-variant": "#504444",
+                      "on-surface": "#1b1c1a",
+                      "on-tertiary-fixed-variant": "#544600",
+                      "secondary-fixed-dim": "#ffb2bc",
+                      "secondary-container": "#feaab6",
+                      "on-secondary-fixed": "#3a0915",
+                      "tertiary": "#705d00",
+                      "inverse-surface": "#30312e",
+                      "on-primary-fixed": "#2f1314",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-container": "#675600",
+                      "primary-container": "#f4c2c2",
+                      "surface-variant": "#e4e2de",
+                      "primary-fixed": "#ffdad9",
+                      "tertiary-fixed": "#ffe16d",
+                      "on-error-container": "#93000a",
+                      "surface-container-low": "#f5f3ef",
+                      "inverse-on-surface": "#f2f0ed",
+                      "tertiary-fixed-dim": "#e9c400",
+                      "inverse-primary": "#ecbaba",
+                      "error": "#ba1a1a",
+                      "on-tertiary-fixed": "#221b00",
+                      "secondary-fixed": "#ffd9dd",
+                      "on-error": "#ffffff",
+                      "primary": "#7b5455",
+                      "on-secondary-container": "#7a3c46",
+                      "outline-variant": "#d4c2c2",
+                      "surface-dim": "#dbdad6",
+                      "outline": "#827473",
+                      "on-primary-container": "#734e4e",
+                      "secondary": "#8c4b55",
+                      "primary-fixed-dim": "#ecbaba",
+                      "surface-container": "#efeeea",
+                      "background": "#fbf9f5",
+                      "on-background": "#1b1c1a",
+                      "surface-bright": "#fbf9f5",
+                      "surface-container-highest": "#e4e2de",
+                      "on-primary-fixed-variant": "#613d3e",
+                      "surface": "#fbf9f5"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "section-gap": "80px",
+                      "gutter": "24px",
+                      "unit": "8px",
+                      "container-max": "1200px",
+                      "margin-mobile": "20px"
+              },
+              "fontFamily": {
+                      "headline-sm": [
+                              "Playfair Display", "serif"
+                      ],
+                      "headline-md": [
+                              "Playfair Display", "serif"
+                      ],
+                      "label-caps": [
+                              "Plus Jakarta Sans", "sans-serif"
+                      ],
+                      "body-lg": [
+                              "Plus Jakarta Sans", "sans-serif"
+                      ],
+                      "display-lg": [
+                              "Playfair Display", "serif"
+                      ],
+                      "body-md": [
+                              "Plus Jakarta Sans", "sans-serif"
+                      ],
+                      "display-lg-mobile": [
+                              "Playfair Display", "serif"
+                      ]
+              },
+              "fontSize": {
+                      "headline-sm": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.0",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "36px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+            },
+          },
+        }
+    </script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 20px;
+            background: #ffd9dd;
+            top: 0;
+            opacity: 0;
+        }
+
+        @keyframes confettiFall {
+            0% { opacity: 1; top: -10%; transform: translateX(0) rotate(0deg); }
+            100% { opacity: 0; top: 100%; transform: translateX(100px) rotate(360deg); }
+        }
+
+        .balloon {
+            position: absolute;
+            bottom: -100px;
+            width: 60px;
+            height: 80px;
+            background-color: #f4c2c2;
+            border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+            box-shadow: inset -10px -10px 15px rgba(0,0,0,0.1);
+            animation: floatUp 15s infinite ease-in;
+        }
+
+        .balloon::before {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 8px solid #f4c2c2;
+        }
+
+        .balloon::after {
+            content: "";
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            width: 1px;
+            height: 50px;
+            background-color: rgba(0,0,0,0.2);
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(-5deg); opacity: 1; }
+            50% { transform: translateY(-50vh) rotate(5deg); }
+            100% { transform: translateY(-120vh) rotate(-5deg); opacity: 0; }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 1.5s ease-out forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .btn-hover-effect {
+            transition: all 0.3s ease;
+        }
+        .btn-hover-effect:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(123, 84, 85, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen relative overflow-hidden flex flex-col justify-between">
+<!-- Top App Bar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-gutter py-4 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md shadow-sm shadow-primary/10 transition-all duration-300 hidden md:flex">
+<div class="text-headline-md font-headline-md text-primary dark:text-primary-fixed-dim">Amour</div>
+<nav class="flex gap-6">
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:scale-110 transition-transform duration-300" href="#">Start</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:scale-110 transition-transform duration-300" href="#">Memories</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:scale-110 transition-transform duration-300" href="#">Quiz</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:scale-110 transition-transform duration-300" href="#">Letters</a>
+<a class="text-primary font-bold font-label-caps text-label-caps hover:scale-110 transition-transform duration-300" href="#">Finale</a>
+</nav>
+<div class="flex gap-4">
+<button class="text-primary dark:text-primary-fixed-dim hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined">music_note</span>
+</button>
+<button class="text-primary dark:text-primary-fixed-dim hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined">volume_up</span>
+</button>
+</div>
+</header>
+<!-- Shader Background -->
+<div class="absolute inset-0 z-0">
+<!-- STITCH_SHADER_START:ANIMATION_4 class="absolute inset-0 w-full h-full" -->
+<div class="absolute inset-0 w-full h-full" style="display:block;">
+<canvas id="shader-canvas-ANIMATION_4" style="display:block;width:100%;height:100%"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-ANIMATION_4');
+
+  // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+  // This fires on initial layout and whenever the element is resized.
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `precision highp float;
+uniform float u_time;
+uniform vec2 u_resolution;
+
+// Simple heart shape function
+float heart(vec2 uv) {
+    uv.y -= 0.25;
+    float a = atan(uv.x, uv.y) / 3.14159265;
+    float r = length(uv);
+    float h = abs(a);
+    float d = (13.0*h - 22.0*h*h + 10.0*h*h*h) / (6.0-5.0*h);
+    return smoothstep(d - 0.05, d, r);
+}
+
+void main() {
+    vec2 uv = (gl_FragCoord.xy - 0.5 * u_resolution.xy) / min(u_resolution.y, u_resolution.x);
+    uv *= 2.0;
+    
+    float t = u_time * 0.5;
+    vec3 col = vec3(0.0);
+    
+    // Floating hearts logic
+    for(float i=0.0; i<8.0; i++) {
+        vec2 p = vec2(sin(t + i*1.5), cos(t*0.7 + i*2.0)) * 0.8;
+        float h = heart(uv - p);
+        col = mix(col, vec3(1.0, 0.4, 0.5), 1.0 - h);
+    }
+    
+    gl_FragColor = vec4(col, col.r * 0.5);
+}`;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  const uRes = gl.getUniformLocation(prog, 'u_resolution');
+  const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+  // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+  // Shaders that need normalized coords should use: u_mouse / u_resolution.
+  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+  window.addEventListener('mousemove', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width && rect.height) {
+      const nx = (event.clientX - rect.left) / rect.width;
+      const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+      mouse.x = nx * canvas.width;
+      mouse.y = ny * canvas.height;
+    }
+  });
+
+  function render(t) {
+    if (typeof ResizeObserver === 'undefined') syncSize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+    if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+<!-- STITCH_SHADER_END:ANIMATION_4 -->
+</div>
+<!-- Balloons & Confetti Container -->
+<div class="absolute inset-0 z-10 pointer-events-none" id="animation-container"></div>
+<!-- Main Content Canvas -->
+<main class="relative z-20 flex-grow flex flex-col items-center justify-center p-gutter mt-16 mb-24 md:mb-16 max-w-container-max mx-auto w-full">
+<div class="bg-surface/60 backdrop-blur-md p-8 md:p-16 rounded-2xl shadow-[0_8px_32px_rgba(123,84,85,0.1)] border border-primary/10 max-w-3xl text-center fade-in-up" style="animation-delay: 0.5s;">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">
+                Happy Birthday to my everything.
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 leading-relaxed">
+                Here's to many more together. ❤️
+            </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+<button class="btn-hover-effect bg-gradient-to-r from-primary to-secondary text-on-primary font-label-caps text-label-caps py-4 px-8 rounded-full shadow-md flex items-center gap-2">
+<span class="material-symbols-outlined">replay</span>
+                    Replay Journey
+                </button>
+<button class="btn-hover-effect bg-surface text-primary border border-primary/20 font-label-caps text-label-caps py-4 px-8 rounded-full shadow-sm flex items-center gap-2" id="music-toggle">
+<span class="material-symbols-outlined">play_arrow</span>
+                    Play Music
+                </button>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="relative z-20 text-center py-8 pb-32 md:pb-8">
+<p class="font-headline-sm text-headline-sm text-primary/80 italic">Happy Birthday, My Love!</p>
+</footer>
+<!-- Bottom Nav Bar (Mobile) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pb-6 pt-2 bg-surface/90 dark:bg-surface-container-lowest/90 bg-surface-container-low dark:bg-surface-container-high shadow-[0_-4px_10px_rgba(140,75,85,0.08)] rounded-t-xl md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-colors duration-300" href="#">
+<span class="material-symbols-outlined">celebration</span>
+<span class="font-label-caps text-label-caps mt-1">Start</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-colors duration-300" href="#">
+<span class="material-symbols-outlined">extension</span>
+<span class="font-label-caps text-label-caps mt-1">Memories</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-colors duration-300" href="#">
+<span class="material-symbols-outlined">quiz</span>
+<span class="font-label-caps text-label-caps mt-1">Quiz</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-colors duration-300" href="#">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-label-caps text-label-caps mt-1">Letters</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1.5 hover:text-primary transition-colors duration-300 scale-90" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-caps text-label-caps mt-1">Finale</span>
+</a>
+</nav>
+<script>
+        // Generate Confetti
+        const container = document.getElementById('animation-container');
+        const colors = ['#f4c2c2', '#ffdad9', '#ffb2bc', '#feaab6', '#ffffff'];
+
+        function createConfetti() {
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti-piece');
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animation = `confettiFall ${Math.random() * 3 + 2}s linear infinite`;
+                confetti.style.animationDelay = `${Math.random() * 5}s`;
+                container.appendChild(confetti);
+            }
+        }
+
+        // Generate Balloons
+        function createBalloons() {
+            for (let i = 0; i < 10; i++) {
+                const balloon = document.createElement('div');
+                balloon.classList.add('balloon');
+                balloon.style.left = Math.random() * 100 + 'vw';
+                balloon.style.animationDuration = `${Math.random() * 10 + 15}s`;
+                balloon.style.animationDelay = `${Math.random() * 10}s`;
+                balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                container.appendChild(balloon);
+            }
+        }
+
+        createConfetti();
+        createBalloons();
+
+        // Music Toggle Logic (Visual only)
+        const musicBtn = document.getElementById('music-toggle');
+        let isPlaying = false;
+        musicBtn.addEventListener('click', () => {
+            isPlaying = !isPlaying;
+            const icon = musicBtn.querySelector('.material-symbols-outlined');
+            if (isPlaying) {
+                icon.textContent = 'pause';
+                musicBtn.innerHTML = `<span class="material-symbols-outlined">pause</span> Pause Music`;
+            } else {
+                icon.textContent = 'play_arrow';
+                musicBtn.innerHTML = `<span class="material-symbols-outlined">play_arrow</span> Play Music`;
+            }
+        });
+    </script>
+</body></html>

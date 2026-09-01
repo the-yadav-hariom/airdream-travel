@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Love Letters - Amour</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#70343e",
+                    "error-container": "#ffdad6",
+                    "surface-tint": "#7b5455",
+                    "on-tertiary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "surface-container-high": "#eae8e4",
+                    "tertiary-container": "#f1cb00",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#504444",
+                    "on-surface": "#1b1c1a",
+                    "on-tertiary-fixed-variant": "#544600",
+                    "secondary-fixed-dim": "#ffb2bc",
+                    "secondary-container": "#feaab6",
+                    "on-secondary-fixed": "#3a0915",
+                    "tertiary": "#705d00",
+                    "inverse-surface": "#30312e",
+                    "on-primary-fixed": "#2f1314",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-container": "#675600",
+                    "primary-container": "#f4c2c2",
+                    "surface-variant": "#e4e2de",
+                    "primary-fixed": "#ffdad9",
+                    "tertiary-fixed": "#ffe16d",
+                    "on-error-container": "#93000a",
+                    "surface-container-low": "#f5f3ef",
+                    "inverse-on-surface": "#f2f0ed",
+                    "tertiary-fixed-dim": "#e9c400",
+                    "inverse-primary": "#ecbaba",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed": "#221b00",
+                    "secondary-fixed": "#ffd9dd",
+                    "on-error": "#ffffff",
+                    "primary": "#7b5455",
+                    "on-secondary-container": "#7a3c46",
+                    "outline-variant": "#d4c2c2",
+                    "surface-dim": "#dbdad6",
+                    "outline": "#827473",
+                    "on-primary-container": "#734e4e",
+                    "secondary": "#8c4b55",
+                    "primary-fixed-dim": "#ecbaba",
+                    "surface-container": "#efeeea",
+                    "background": "#fbf9f5",
+                    "on-background": "#1b1c1a",
+                    "surface-bright": "#fbf9f5",
+                    "surface-container-highest": "#e4e2de",
+                    "on-primary-fixed-variant": "#613d3e",
+                    "surface": "#fbf9f5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-gap": "80px",
+                    "gutter": "24px",
+                    "unit": "8px",
+                    "container-max": "1200px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "headline-sm": [
+                            "Playfair Display"
+                    ],
+                    "headline-md": [
+                            "Playfair Display"
+                    ],
+                    "label-caps": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "body-lg": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "display-lg": [
+                            "Playfair Display"
+                    ],
+                    "body-md": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "display-lg-mobile": [
+                            "Playfair Display"
+                    ]
+            },
+            "fontSize": {
+                    "headline-sm": [
+                            "24px",
+                            {
+                                    "lineHeight": "1.4",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-md": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.3",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "label-caps": [
+                            "12px",
+                            {
+                                    "lineHeight": "1.0",
+                                    "letterSpacing": "0.1em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "display-lg-mobile": [
+                            "36px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "700"
+                            }
+                    ]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            background-image: radial-gradient(circle at top right, theme('colors.surface-container-low') 0%, transparent 60%),
+                              radial-gradient(circle at bottom left, theme('colors.primary-fixed') 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+        
+        .flip-card {
+            perspective: 1000px;
+        }
+        
+        .flip-card-inner {
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+        
+        .flip-card:hover .flip-card-inner,
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .flip-card-front, .flip-card-back {
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+        
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+
+        .envelope-flap {
+            clip-path: polygon(0 0, 50% 50%, 100% 0, 100% 100%, 0 100%);
+        }
+        
+        .envelope-top {
+            clip-path: polygon(0 0, 50% 50%, 100% 0);
+            transform-origin: top;
+            transition: transform 0.5s ease;
+        }
+        
+        .flip-card:hover .envelope-top {
+            transform: rotateX(180deg);
+            z-index: 10;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .delay-1 { animation-delay: 1s; }
+        .delay-2 { animation-delay: 2s; }
+        .delay-3 { animation-delay: 3s; }
+    </style>
+</head>
+<body class="text-on-background min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-gutter py-4 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md shadow-sm shadow-primary/10 hidden md:flex">
+<div class="text-headline-md font-headline-md text-primary dark:text-primary-fixed-dim hover:scale-110 transition-transform duration-300">Amour</div>
+<nav class="flex gap-8">
+<a class="text-on-surface-variant font-body-md text-body-md hover:scale-110 transition-transform duration-300" href="#">Start</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:scale-110 transition-transform duration-300" href="#">Memories</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:scale-110 transition-transform duration-300" href="#">Quiz</a>
+<a class="text-primary font-bold font-body-md text-body-md hover:scale-110 transition-transform duration-300" href="#">Letters</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:scale-110 transition-transform duration-300" href="#">Finale</a>
+</nav>
+<div class="flex gap-4 text-primary dark:text-primary-fixed-dim">
+<span class="material-symbols-outlined hover:scale-110 transition-transform duration-300 cursor-pointer" style="font-variation-settings: 'FILL' 0;">music_note</span>
+<span class="material-symbols-outlined hover:scale-110 transition-transform duration-300 cursor-pointer" style="font-variation-settings: 'FILL' 0;">volume_up</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="max-w-[1200px] mx-auto px-gutter pt-24 md:pt-32 pb-section-gap">
+<!-- Header Section -->
+<div class="text-center mb-16 md:mb-24">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-4 floating">Reasons Why I Love You</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Hover over or tap each little envelope to reveal a tiny piece of my heart. These are just a few of the countless reasons why you mean everything to me.</p>
+</div>
+<!-- Bento Grid of Letters -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+<!-- Letter 1 -->
+<div class="flip-card h-64 w-full cursor-pointer floating">
+<div class="flip-card-inner relative w-full h-full shadow-[0_8px_30px_rgba(123,84,85,0.08)] rounded-xl">
+<!-- Front (Envelope) -->
+<div class="flip-card-front absolute w-full h-full bg-surface-container-lowest rounded-xl border border-primary-fixed flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 bg-primary-container/20"></div>
+<div class="envelope-top absolute top-0 left-0 w-full h-1/2 bg-primary/10 border-b border-primary-fixed"></div>
+<div class="envelope-flap absolute inset-0 bg-surface-container-lowest border-t border-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-primary mt-8" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<span class="absolute top-4 text-label-caps font-label-caps text-secondary">Letter 01</span>
+</div>
+<!-- Back (Message) -->
+<div class="flip-card-back absolute w-full h-full bg-primary-container rounded-xl p-6 flex flex-col items-center justify-center text-center shadow-[0_8px_30px_rgba(123,84,85,0.15)] border border-white/50">
+<span class="material-symbols-outlined text-on-primary-container mb-4" style="font-variation-settings: 'FILL' 1;">sentiment_satisfied</span>
+<h3 class="font-headline-sm text-headline-sm text-on-primary-container mb-2">Your Laugh</h3>
+<p class="font-body-md text-body-md text-on-primary-container/80">It's my favorite sound in the whole world. It instantly brightens my darkest days.</p>
+</div>
+</div>
+</div>
+<!-- Letter 2 -->
+<div class="flip-card h-64 w-full cursor-pointer floating delay-1">
+<div class="flip-card-inner relative w-full h-full shadow-[0_8px_30px_rgba(123,84,85,0.08)] rounded-xl">
+<div class="flip-card-front absolute w-full h-full bg-surface-container-lowest rounded-xl border border-primary-fixed flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 bg-secondary-container/20"></div>
+<div class="envelope-top absolute top-0 left-0 w-full h-1/2 bg-secondary/10 border-b border-primary-fixed"></div>
+<div class="envelope-flap absolute inset-0 bg-surface-container-lowest border-t border-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-secondary mt-8" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<span class="absolute top-4 text-label-caps font-label-caps text-secondary">Letter 02</span>
+</div>
+<div class="flip-card-back absolute w-full h-full bg-secondary-container rounded-xl p-6 flex flex-col items-center justify-center text-center shadow-[0_8px_30px_rgba(123,84,85,0.15)] border border-white/50">
+<span class="material-symbols-outlined text-on-secondary-container mb-4" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+<h3 class="font-headline-sm text-headline-sm text-on-secondary-container mb-2">Your Kindness</h3>
+<p class="font-body-md text-body-md text-on-secondary-container/80">The gentle way you treat everyone and everything around you is truly inspiring.</p>
+</div>
+</div>
+</div>
+<!-- Letter 3 -->
+<div class="flip-card h-64 w-full cursor-pointer floating delay-2 lg:col-span-1 md:col-span-2">
+<div class="flip-card-inner relative w-full h-full shadow-[0_8px_30px_rgba(123,84,85,0.08)] rounded-xl">
+<div class="flip-card-front absolute w-full h-full bg-surface-container-lowest rounded-xl border border-primary-fixed flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 bg-tertiary-fixed/30"></div>
+<div class="envelope-top absolute top-0 left-0 w-full h-1/2 bg-tertiary/10 border-b border-primary-fixed"></div>
+<div class="envelope-flap absolute inset-0 bg-surface-container-lowest border-t border-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-tertiary mt-8" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<span class="absolute top-4 text-label-caps font-label-caps text-secondary">Letter 03</span>
+</div>
+<div class="flip-card-back absolute w-full h-full bg-surface-container-highest rounded-xl p-6 flex flex-col items-center justify-center text-center shadow-[0_8px_30px_rgba(123,84,85,0.15)] border border-white/50">
+<span class="material-symbols-outlined text-on-surface mb-4" style="font-variation-settings: 'FILL' 1;">chevron_left</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">My Safe Haven</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Just being in your arms makes all the worries of the world melt away completely.</p>
+</div>
+</div>
+</div>
+<!-- Letter 4 -->
+<div class="flip-card h-64 w-full cursor-pointer floating delay-3">
+<div class="flip-card-inner relative w-full h-full shadow-[0_8px_30px_rgba(123,84,85,0.08)] rounded-xl">
+<div class="flip-card-front absolute w-full h-full bg-surface-container-lowest rounded-xl border border-primary-fixed flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 bg-primary-container/10"></div>
+<div class="envelope-top absolute top-0 left-0 w-full h-1/2 bg-primary/5 border-b border-primary-fixed"></div>
+<div class="envelope-flap absolute inset-0 bg-surface-container-lowest border-t border-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-primary mt-8" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<span class="absolute top-4 text-label-caps font-label-caps text-secondary">Letter 04</span>
+</div>
+<div class="flip-card-back absolute w-full h-full bg-surface-variant rounded-xl p-6 flex flex-col items-center justify-center text-center shadow-[0_8px_30px_rgba(123,84,85,0.15)] border border-white/50">
+<span class="material-symbols-outlined text-on-surface-variant mb-4" style="font-variation-settings: 'FILL' 1;">visibility</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface-variant mb-2">The Way You See Me</h3>
+<p class="font-body-md text-body-md text-on-surface-variant/80">You see the real me, flaws and all, and love me perfectly anyway.</p>
+</div>
+</div>
+</div>
+<!-- Letter 5 -->
+<div class="flip-card h-64 w-full cursor-pointer floating delay-1 md:col-span-2 lg:col-span-2">
+<div class="flip-card-inner relative w-full h-full shadow-[0_8px_30px_rgba(123,84,85,0.08)] rounded-xl">
+<div class="flip-card-front absolute w-full h-full bg-surface-container-lowest rounded-xl border border-primary-fixed flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 bg-secondary-fixed/30"></div>
+<div class="envelope-top absolute top-0 left-0 w-full h-1/2 bg-secondary/10 border-b border-primary-fixed"></div>
+<div class="envelope-flap absolute inset-0 bg-surface-container-lowest border-t border-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-secondary mt-8" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<span class="absolute top-4 text-label-caps font-label-caps text-secondary">Letter 05</span>
+</div>
+<div class="flip-card-back absolute w-full h-full bg-primary rounded-xl p-6 flex flex-col items-center justify-center text-center shadow-[0_8px_30px_rgba(123,84,85,0.15)] border border-white/20">
+<span class="material-symbols-outlined text-on-primary mb-4" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h3 class="font-headline-sm text-headline-sm text-on-primary mb-2">Our Adventures</h3>
+<p class="font-body-md text-body-md text-on-primary/90">From mundane grocery trips to exploring new cities, everything is magic with you.</p>
+</div>
+</div>
+</div>
+<!-- Letter 6 -->
+<div class="flip-card h-64 w-full cursor-pointer floating delay-2">
+<div class="flip-card-inner relative w-full h-full shadow-[0_8px_30px_rgba(123,84,85,0.08)] rounded-xl">
+<div class="flip-card-front absolute w-full h-full bg-surface-container-lowest rounded-xl border border-primary-fixed flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 bg-error-container/20"></div>
+<div class="envelope-top absolute top-0 left-0 w-full h-1/2 bg-error/10 border-b border-primary-fixed"></div>
+<div class="envelope-flap absolute inset-0 bg-surface-container-lowest border-t border-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-error mt-8" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<span class="absolute top-4 text-label-caps font-label-caps text-secondary">Letter 06</span>
+</div>
+<div class="flip-card-back absolute w-full h-full bg-error-container rounded-xl p-6 flex flex-col items-center justify-center text-center shadow-[0_8px_30px_rgba(123,84,85,0.15)] border border-white/50">
+<span class="material-symbols-outlined text-on-error-container mb-4" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<h3 class="font-headline-sm text-headline-sm text-on-error-container mb-2">Forever</h3>
+<p class="font-body-md text-body-md text-on-error-container/80">Because there is no one else I'd rather spend the rest of my days with.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<div class="mt-24 text-center">
+<button class="bg-gradient-to-r from-primary to-secondary text-on-primary font-headline-sm text-headline-sm py-4 px-12 rounded-full shadow-[0_10px_30px_rgba(123,84,85,0.3)] hover:scale-105 hover:shadow-[0_15px_40px_rgba(123,84,85,0.4)] transition-all duration-300 relative overflow-hidden group">
+<span class="relative z-10 flex items-center gap-2">
+                    One more surprise...
+                    <span class="material-symbols-outlined transition-transform group-hover:translate-x-1" style="font-variation-settings: 'FILL' 0;">arrow_forward</span>
+</span>
+<div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out"></div>
+</button>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pb-6 pt-2 bg-surface/90 dark:bg-surface-container-lowest/90 bg-surface-container-low dark:bg-surface-container-high shadow-[0_-4px_10px_rgba(140,75,85,0.08)] rounded-t-xl md:hidden backdrop-blur-md">
+<div class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-colors duration-300 w-16">
+<span class="material-symbols-outlined mb-1 text-2xl" style="font-variation-settings: 'FILL' 0;">celebration</span>
+<span class="text-label-caps font-label-caps">Start</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-colors duration-300 w-16">
+<span class="material-symbols-outlined mb-1 text-2xl" style="font-variation-settings: 'FILL' 0;">extension</span>
+<span class="text-label-caps font-label-caps">Memories</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-colors duration-300 w-16">
+<span class="material-symbols-outlined mb-1 text-2xl" style="font-variation-settings: 'FILL' 0;">quiz</span>
+<span class="text-label-caps font-label-caps">Quiz</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1.5 scale-90 duration-150 w-20">
+<span class="material-symbols-outlined mb-1 text-2xl" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="text-label-caps font-label-caps">Letters</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-colors duration-300 w-16">
+<span class="material-symbols-outlined mb-1 text-2xl" style="font-variation-settings: 'FILL' 0;">auto_awesome</span>
+<span class="text-label-caps font-label-caps">Finale</span>
+</div>
+</nav>
+<script>
+        // Simple micro-interaction for cards to toggle flipped state on mobile
+        document.querySelectorAll('.flip-card').forEach(card => {
+            card.addEventListener('click', () => {
+                if(window.innerWidth < 768) {
+                    card.classList.toggle('flipped');
+                }
+            });
+        });
+    </script>
+</body></html>

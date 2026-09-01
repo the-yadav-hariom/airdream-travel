@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Grand Finale</title>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-fixed-variant": "#70343e",
+                      "error-container": "#ffdad6",
+                      "surface-tint": "#7b5455",
+                      "on-tertiary": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "surface-container-high": "#eae8e4",
+                      "tertiary-container": "#f1cb00",
+                      "surface-container-lowest": "#ffffff",
+                      "on-surface-variant": "#504444",
+                      "on-surface": "#1b1c1a",
+                      "on-tertiary-fixed-variant": "#544600",
+                      "secondary-fixed-dim": "#ffb2bc",
+                      "secondary-container": "#feaab6",
+                      "on-secondary-fixed": "#3a0915",
+                      "tertiary": "#705d00",
+                      "inverse-surface": "#30312e",
+                      "on-primary-fixed": "#2f1314",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-container": "#675600",
+                      "primary-container": "#f4c2c2",
+                      "surface-variant": "#e4e2de",
+                      "primary-fixed": "#ffdad9",
+                      "tertiary-fixed": "#ffe16d",
+                      "on-error-container": "#93000a",
+                      "surface-container-low": "#f5f3ef",
+                      "inverse-on-surface": "#f2f0ed",
+                      "tertiary-fixed-dim": "#e9c400",
+                      "inverse-primary": "#ecbaba",
+                      "error": "#ba1a1a",
+                      "on-tertiary-fixed": "#221b00",
+                      "secondary-fixed": "#ffd9dd",
+                      "on-error": "#ffffff",
+                      "primary": "#7b5455",
+                      "on-secondary-container": "#7a3c46",
+                      "outline-variant": "#d4c2c2",
+                      "surface-dim": "#dbdad6",
+                      "outline": "#827473",
+                      "on-primary-container": "#734e4e",
+                      "secondary": "#8c4b55",
+                      "primary-fixed-dim": "#ecbaba",
+                      "surface-container": "#efeeea",
+                      "background": "#fbf9f5",
+                      "on-background": "#1b1c1a",
+                      "surface-bright": "#fbf9f5",
+                      "surface-container-highest": "#e4e2de",
+                      "on-primary-fixed-variant": "#613d3e",
+                      "surface": "#fbf9f5"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "section-gap": "80px",
+                      "gutter": "24px",
+                      "unit": "8px",
+                      "container-max": "1200px",
+                      "margin-mobile": "20px"
+              },
+              "fontFamily": {
+                      "headline-sm": [
+                              "Playfair Display", "serif"
+                      ],
+                      "headline-md": [
+                              "Playfair Display", "serif"
+                      ],
+                      "label-caps": [
+                              "Plus Jakarta Sans", "sans-serif"
+                      ],
+                      "body-lg": [
+                              "Plus Jakarta Sans", "sans-serif"
+                      ],
+                      "display-lg": [
+                              "Playfair Display", "serif"
+                      ],
+                      "body-md": [
+                              "Plus Jakarta Sans", "sans-serif"
+                      ],
+                      "display-lg-mobile": [
+                              "Playfair Display", "serif"
+                      ]
+              },
+              "fontSize": {
+                      "headline-sm": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.0",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "36px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+            },
+          },
+        }
+    </script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .fade-in-up {
+            animation: fadeInUp 1.5s ease-out forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .btn-hover-effect {
+            transition: all 0.3s ease;
+        }
+        .btn-hover-effect:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(123, 84, 85, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen relative overflow-hidden flex flex-col justify-between">
+<!-- Top App Bar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-gutter py-4 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md shadow-sm shadow-primary/10 transition-all duration-300 hidden md:flex">
+<div class="text-headline-md font-headline-md text-primary dark:text-primary-fixed-dim">Amour</div>
+<nav class="flex gap-6">
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:scale-110 transition-transform duration-300" href="#">Start</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:scale-110 transition-transform duration-300" href="#">Memories</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:scale-110 transition-transform duration-300" href="#">Quiz</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:scale-110 transition-transform duration-300" href="#">Letters</a>
+<a class="text-primary font-bold font-label-caps text-label-caps hover:scale-110 transition-transform duration-300" href="#">Finale</a>
+</nav>
+<div class="flex gap-4">
+<button class="text-primary dark:text-primary-fixed-dim hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined">music_note</span>
+</button>
+<button class="text-primary dark:text-primary-fixed-dim hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined">volume_up</span>
+</button>
+</div>
+</header>
+<!-- 3D Animation Container -->
+<div class="absolute inset-0 z-0 pointer-events-none" id="animation-container"></div>
+<!-- Main Content Canvas -->
+<main class="relative z-20 flex-grow flex flex-col items-center justify-center p-gutter mt-16 mb-24 md:mb-16 max-w-container-max mx-auto w-full">
+<div class="bg-surface/80 backdrop-blur-xl p-8 md:p-16 rounded-2xl shadow-[0_8px_32px_rgba(123,84,85,0.15)] border border-primary/20 max-w-3xl text-center fade-in-up" style="animation-delay: 0.5s;">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6 drop-shadow-sm">
+                Happy Birthday to my everything.
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 leading-relaxed font-medium">
+                Here's to many more together. ❤️
+            </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+<button class="btn-hover-effect bg-gradient-to-r from-primary to-secondary text-on-primary font-label-caps text-label-caps py-4 px-8 rounded-full shadow-md flex items-center gap-2">
+<span class="material-symbols-outlined">replay</span>
+                    Replay Journey
+                </button>
+<button class="btn-hover-effect bg-surface text-primary border border-primary/20 font-label-caps text-label-caps py-4 px-8 rounded-full shadow-sm flex items-center gap-2" id="music-toggle">
+<span class="material-symbols-outlined">play_arrow</span>
+                    Play Music
+                </button>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="relative z-20 text-center py-8 pb-32 md:pb-8">
+<p class="font-headline-sm text-headline-sm text-primary/80 italic drop-shadow-sm">Happy Birthday, My Love!</p>
+</footer>
+<!-- Bottom Nav Bar (Mobile) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pb-6 pt-2 bg-surface/90 dark:bg-surface-container-lowest/90 shadow-[0_-4px_10px_rgba(140,75,85,0.08)] rounded-t-xl md:hidden backdrop-blur-md">
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-colors duration-300" href="#">
+<span class="material-symbols-outlined">celebration</span>
+<span class="font-label-caps text-label-caps mt-1">Start</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-colors duration-300" href="#">
+<span class="material-symbols-outlined">extension</span>
+<span class="font-label-caps text-label-caps mt-1">Memories</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-colors duration-300" href="#">
+<span class="material-symbols-outlined">quiz</span>
+<span class="font-label-caps text-label-caps mt-1">Quiz</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-colors duration-300" href="#">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-label-caps text-label-caps mt-1">Letters</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1.5 hover:text-primary transition-colors duration-300 scale-90" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-caps text-label-caps mt-1">Finale</span>
+</a>
+</nav>
+<script>
+        // Set up 3D Scene Container
+        const container = document.getElementById('animation-container');
+        
+        // Inject Three.js Animation
+        try {
+            <!-- STITCH_THREEJS_START:ANIMATION_11 class="" -->
+<div class="" style="display:block;width:100%;height:100%;min-height:200px;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_11" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_11');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  
+const scene = new THREE.Scene();
+const width = container.clientWidth || window.innerWidth;
+const height = container.clientHeight || window.innerHeight;
+const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+renderer.setSize(width, height);
+renderer.setPixelRatio(window.devicePixelRatio);
+container.appendChild(renderer.domElement);
+
+// Lighting
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+scene.scene.add(ambientLight);
+const pointLight = new THREE.PointLight(0xf4c2c2, 1.5);
+pointLight.position.set(5, 5, 5);
+scene.add(pointLight);
+
+// Heart Geometry
+const heartShape = new THREE.Shape();
+const x = 0, y = 0;
+heartShape.moveTo(x + 25, y + 25);
+heartShape.bezierCurveTo(x + 25, y + 25, x + 20, y, x, y);
+heartShape.bezierCurveTo(x - 30, y, x - 30, y + 35, x - 30, y + 35);
+heartShape.bezierCurveTo(x - 30, y + 55, x - 10, y + 77, x + 25, y + 95);
+heartShape.bezierCurveTo(x + 60, y + 77, x + 80, y + 55, x + 80, y + 35);
+heartShape.bezierCurveTo(x + 80, y + 35, x + 80, y, x + 50, y);
+heartShape.bezierCurveTo(x + 35, y, x + 25, y + 25, x + 25, y + 25);
+
+const extrudeSettings = { depth: 8, bevelEnabled: true, bevelSegments: 2, steps: 2, bevelSize: 1, bevelThickness: 1 };
+const geometry = new THREE.ExtrudeGeometry(heartShape, extrudeSettings);
+geometry.center();
+geometry.scale(0.01, 0.01, 0.01);
+
+const material = new THREE.MeshPhongMaterial({ 
+    color: 0x8c4b55, 
+    shininess: 100, 
+    specular: 0xffffff 
+});
+
+const hearts = [];
+for (let i = 0; i < 20; i++) {
+    const heart = new THREE.Mesh(geometry, material);
+    heart.position.set(
+        (Math.random() - 0.5) * 10,
+        (Math.random() - 0.5) * 10,
+        (Math.random() - 0.5) * 5
+    );
+    heart.rotation.set(Math.random() * Math.PI, Math.random() * Math.PI, 0);
+    heart.scale.setScalar(0.5 + Math.random() * 1.5);
+    heart.userData.speed = 0.01 + Math.random() * 0.02;
+    scene.add(heart);
+    hearts.push(heart);
+}
+
+camera.position.z = 5;
+
+function animate() {
+    requestAnimationFrame(animate);
+    hearts.forEach(heart => {
+        heart.rotation.y += heart.userData.speed;
+        heart.rotation.x += heart.userData.speed * 0.5;
+        heart.position.y += Math.sin(Date.now() * 0.001 + heart.position.x) * 0.002;
+    });
+    renderer.render(scene, camera);
+}
+
+window.addEventListener('resize', () => {
+    const w = container.clientWidth || window.innerWidth;
+    const h = container.clientHeight || window.innerHeight;
+    renderer.setSize(w, h);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+});
+
+animate();
+
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_11 -->
+        } catch (e) {
+            console.error("Error loading 3D scene:", e);
+        }
+
+        // Music Toggle Logic (Visual only)
+        const musicBtn = document.getElementById('music-toggle');
+        let isPlaying = false;
+        musicBtn.addEventListener('click', () => {
+            isPlaying = !isPlaying;
+            const icon = musicBtn.querySelector('.material-symbols-outlined');
+            if (isPlaying) {
+                icon.textContent = 'pause';
+                musicBtn.innerHTML = `<span class="material-symbols-outlined">pause</span> Pause Music`;
+            } else {
+                icon.textContent = 'play_arrow';
+                musicBtn.innerHTML = `<span class="material-symbols-outlined">play_arrow</span> Play Music`;
+            }
+        });
+    </script>
+</body></html>

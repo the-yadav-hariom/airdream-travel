@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Amour - Relationship Quiz</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Playfair Display (Headlines) & Plus Jakarta Sans (Body) -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Config injected from system prompt -->
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-fixed-variant": "#70343e",
+                      "error-container": "#ffdad6",
+                      "surface-tint": "#7b5455",
+                      "on-tertiary": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "surface-container-high": "#eae8e4",
+                      "tertiary-container": "#f1cb00",
+                      "surface-container-lowest": "#ffffff",
+                      "on-surface-variant": "#504444",
+                      "on-surface": "#1b1c1a",
+                      "on-tertiary-fixed-variant": "#544600",
+                      "secondary-fixed-dim": "#ffb2bc",
+                      "secondary-container": "#feaab6",
+                      "on-secondary-fixed": "#3a0915",
+                      "tertiary": "#705d00",
+                      "inverse-surface": "#30312e",
+                      "on-primary-fixed": "#2f1314",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-container": "#675600",
+                      "primary-container": "#f4c2c2",
+                      "surface-variant": "#e4e2de",
+                      "primary-fixed": "#ffdad9",
+                      "tertiary-fixed": "#ffe16d",
+                      "on-error-container": "#93000a",
+                      "surface-container-low": "#f5f3ef",
+                      "inverse-on-surface": "#f2f0ed",
+                      "tertiary-fixed-dim": "#e9c400",
+                      "inverse-primary": "#ecbaba",
+                      "error": "#ba1a1a",
+                      "on-tertiary-fixed": "#221b00",
+                      "secondary-fixed": "#ffd9dd",
+                      "on-error": "#ffffff",
+                      "primary": "#7b5455",
+                      "on-secondary-container": "#7a3c46",
+                      "outline-variant": "#d4c2c2",
+                      "surface-dim": "#dbdad6",
+                      "outline": "#827473",
+                      "on-primary-container": "#734e4e",
+                      "secondary": "#8c4b55",
+                      "primary-fixed-dim": "#ecbaba",
+                      "surface-container": "#efeeea",
+                      "background": "#fbf9f5",
+                      "on-background": "#1b1c1a",
+                      "surface-bright": "#fbf9f5",
+                      "surface-container-highest": "#e4e2de",
+                      "on-primary-fixed-variant": "#613d3e",
+                      "surface": "#fbf9f5"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "section-gap": "80px",
+                      "gutter": "24px",
+                      "unit": "8px",
+                      "container-max": "1200px",
+                      "margin-mobile": "20px"
+              },
+              "fontFamily": {
+                      "headline-sm": [
+                              "Playfair Display"
+                      ],
+                      "headline-md": [
+                              "Playfair Display"
+                      ],
+                      "label-caps": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "display-lg": [
+                              "Playfair Display"
+                      ],
+                      "body-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "display-lg-mobile": [
+                              "Playfair Display"
+                      ]
+              },
+              "fontSize": {
+                      "headline-sm": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.0",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "36px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        /* Custom Animations & Styles */
+        body {
+            background-image: radial-gradient(circle at top right, var(--tw-colors-primary-fixed) 0%, transparent 40%),
+                              radial-gradient(circle at bottom left, var(--tw-colors-secondary-fixed) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        .shake {
+            animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+        }
+
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-1px, 0, 0); }
+            20%, 80% { transform: translate3d(2px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+            40%, 60% { transform: translate3d(4px, 0, 0); }
+        }
+
+        .heart-burst {
+            position: absolute;
+            pointer-events: none;
+            animation: floatUp 1s ease-out forwards;
+            opacity: 0;
+            color: var(--tw-colors-primary);
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(0.5); opacity: 1; }
+            100% { transform: translateY(-50px) scale(1.5); opacity: 0; }
+        }
+
+        .quiz-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .quiz-card.hidden-card {
+            opacity: 0;
+            transform: scale(0.9) translateY(20px);
+            pointer-events: none;
+            position: absolute;
+        }
+
+        .quiz-card.active-card {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Ambient glowing shadow for cards */
+        .ambient-shadow {
+            box-shadow: 0 10px 30px -5px rgba(140, 75, 85, 0.1), 0 0 20px rgba(255, 178, 188, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen font-body-md relative overflow-x-hidden pt-24 pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-gutter py-4 bg-surface/80 backdrop-blur-md shadow-sm shadow-primary/10">
+<div class="text-headline-md font-headline-md text-primary tracking-tight">Amour</div>
+<div class="flex gap-4">
+<button class="hover:scale-110 transition-transform duration-300 text-on-surface-variant flex items-center justify-center p-2 rounded-full hover:bg-surface-variant/50">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">music_note</span>
+</button>
+<button class="hover:scale-110 transition-transform duration-300 text-on-surface-variant flex items-center justify-center p-2 rounded-full hover:bg-surface-variant/50">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">volume_up</span>
+</button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-gutter relative">
+<!-- Header Section -->
+<section class="text-center mb-12 relative z-10">
+<h1 class="text-display-lg-mobile md:text-display-lg font-display-lg-mobile md:font-display-lg text-primary mb-4">How well do you know us?</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                A little test of memory and love. Let's see if you remember these tiny details as clearly as I do.
+            </p>
+</section>
+<!-- Quiz Container -->
+<div class="max-w-3xl mx-auto relative min-h-[400px]" id="quiz-container">
+<!-- Progress Indicator -->
+<div class="flex justify-center gap-2 mb-8" id="progress-dots">
+<div class="w-2.5 h-2.5 rounded-full bg-primary transition-all duration-300"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-surface-variant transition-all duration-300"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-surface-variant transition-all duration-300"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-surface-variant transition-all duration-300"></div>
+</div>
+<!-- Question 1 -->
+<div class="quiz-card active-card bg-surface rounded-xl p-8 md:p-12 ambient-shadow border border-primary-container relative overflow-hidden" data-question="1">
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-primary-fixed rounded-full blur-3xl opacity-50"></div>
+<div class="text-center mb-8">
+<span class="inline-block px-4 py-1 rounded-full bg-primary-container text-on-primary-container text-label-caps font-label-caps mb-4">Question 1</span>
+<h2 class="text-headline-md font-headline-md text-on-surface">Where did we have our very first date?</h2>
+</div>
+<div class="space-y-4">
+<button class="w-full text-left p-4 rounded-lg border border-outline-variant hover:border-primary hover:bg-primary-fixed-dim/20 transition-all duration-300 group flex items-center justify-between answer-btn" data-correct="false">
+<span class="text-body-lg font-body-lg">The little coffee shop downtown</span>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">radio_button_unchecked</span>
+</button>
+<button class="w-full text-left p-4 rounded-lg border border-outline-variant hover:border-primary hover:bg-primary-fixed-dim/20 transition-all duration-300 group flex items-center justify-between answer-btn" data-correct="true">
+<span class="text-body-lg font-body-lg">That crowded Italian place by the river</span>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">radio_button_unchecked</span>
+</button>
+<button class="w-full text-left p-4 rounded-lg border border-outline-variant hover:border-primary hover:bg-primary-fixed-dim/20 transition-all duration-300 group flex items-center justify-between answer-btn" data-correct="false">
+<span class="text-body-lg font-body-lg">We went to the movies</span>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">radio_button_unchecked</span>
+</button>
+</div>
+</div>
+<!-- Question 2 -->
+<div class="quiz-card hidden-card bg-surface rounded-xl p-8 md:p-12 ambient-shadow border border-primary-container relative overflow-hidden" data-question="2">
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-secondary-fixed rounded-full blur-3xl opacity-50"></div>
+<div class="text-center mb-8">
+<span class="inline-block px-4 py-1 rounded-full bg-secondary-container text-on-secondary-container text-label-caps font-label-caps mb-4">Question 2</span>
+<h2 class="text-headline-md font-headline-md text-on-surface">What is my absolute favorite midnight snack?</h2>
+</div>
+<div class="space-y-4">
+<button class="w-full text-left p-4 rounded-lg border border-outline-variant hover:border-secondary hover:bg-secondary-fixed-dim/20 transition-all duration-300 group flex items-center justify-between answer-btn" data-correct="false">
+<span class="text-body-lg font-body-lg">Ice cream straight from the tub</span>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-secondary transition-colors">radio_button_unchecked</span>
+</button>
+<button class="w-full text-left p-4 rounded-lg border border-outline-variant hover:border-secondary hover:bg-secondary-fixed-dim/20 transition-all duration-300 group flex items-center justify-between answer-btn" data-correct="false">
+<span class="text-body-lg font-body-lg">Leftover pizza</span>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-secondary transition-colors">radio_button_unchecked</span>
+</button>
+<button class="w-full text-left p-4 rounded-lg border border-outline-variant hover:border-secondary hover:bg-secondary-fixed-dim/20 transition-all duration-300 group flex items-center justify-between answer-btn" data-correct="true">
+<span class="text-body-lg font-body-lg">Those spicy chips you hate</span>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-secondary transition-colors">radio_button_unchecked</span>
+</button>
+</div>
+</div>
+<!-- Score Summary Screen -->
+<div class="quiz-card hidden-card bg-surface rounded-xl p-8 md:p-12 ambient-shadow border border-primary-container text-center relative overflow-hidden" id="score-screen">
+<div class="absolute inset-0 bg-gradient-to-br from-primary-fixed/30 to-secondary-fixed/30 z-0"></div>
+<div class="relative z-10">
+<span class="material-symbols-outlined text-[80px] text-primary mb-4" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<h2 class="text-display-lg-mobile md:text-display-lg font-display-lg-mobile md:font-display-lg text-primary mb-4">You know me so well! ❤️</h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant mb-8 max-w-md mx-auto">
+                        Perfect score! Or close enough to perfect that it doesn't matter. I love that you remember our little moments.
+                    </p>
+<button class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-primary to-secondary text-on-primary rounded-full hover:scale-105 hover:shadow-lg transition-all duration-300 shadow-sm shadow-primary/20 font-label-caps text-label-caps tracking-widest uppercase">
+<span>Continue to Page 4</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pb-6 pt-2 bg-surface/90 backdrop-blur-md rounded-t-xl shadow-[0_-4px_10px_rgba(140,75,85,0.08)] bg-surface-container-low md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-colors duration-300 w-16" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">celebration</span>
+<span class="text-label-caps font-label-caps text-[10px]">Start</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-colors duration-300 w-16" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">extension</span>
+<span class="text-label-caps font-label-caps text-[10px]">Memories</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1.5 w-16 transform scale-90" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">quiz</span>
+<span class="text-label-caps font-label-caps text-[10px]">Quiz</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-colors duration-300 w-16" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">favorite</span>
+<span class="text-label-caps font-label-caps text-[10px]">Letters</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-colors duration-300 w-16" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">auto_awesome</span>
+<span class="text-label-caps font-label-caps text-[10px]">Finale</span>
+</a>
+</nav>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttons = document.querySelectorAll('.answer-btn');
+            let currentQuestion = 1;
+            const totalQuestions = 2; // For demo purposes, we have 2 questions
+
+            function createHearts(x, y) {
+                for(let i=0; i<5; i++) {
+                    const heart = document.createElement('span');
+                    heart.className = 'material-symbols-outlined heart-burst';
+                    heart.textContent = 'favorite';
+                    heart.style.left = `${x + (Math.random() * 40 - 20)}px`;
+                    heart.style.top = `${y + (Math.random() * 40 - 20)}px`;
+                    heart.style.fontVariationSettings = "'FILL' 1";
+                    
+                    // Random colors from theme
+                    const colors = ['text-primary', 'text-secondary', 'text-tertiary'];
+                    heart.classList.add(colors[Math.floor(Math.random() * colors.length)]);
+                    
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 1000);
+                }
+            }
+
+            buttons.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    const isCorrect = this.getAttribute('data-correct') === 'true';
+                    const parentCard = this.closest('.quiz-card');
+                    
+                    // Reset all buttons in this card
+                    const siblings = parentCard.querySelectorAll('.answer-btn');
+                    siblings.forEach(s => {
+                        s.classList.remove('bg-error-container', 'border-error', 'bg-primary-container', 'border-primary');
+                        s.querySelector('span.material-symbols-outlined').textContent = 'radio_button_unchecked';
+                    });
+
+                    if (isCorrect) {
+                        this.classList.add('bg-primary-container', 'border-primary');
+                        this.querySelector('span.material-symbols-outlined').textContent = 'check_circle';
+                        
+                        const rect = this.getBoundingClientRect();
+                        createHearts(rect.left + rect.width / 2, rect.top + rect.height / 2);
+
+                        setTimeout(() => {
+                            moveToNextQuestion();
+                        }, 1200);
+
+                    } else {
+                        this.classList.add('bg-error-container', 'border-error');
+                        this.classList.add('shake');
+                        this.querySelector('span.material-symbols-outlined').textContent = 'cancel';
+                        
+                        setTimeout(() => {
+                            this.classList.remove('shake');
+                        }, 500);
+                    }
+                });
+            });
+
+            function moveToNextQuestion() {
+                const currentCard = document.querySelector(`.quiz-card[data-question="${currentQuestion}"]`);
+                currentQuestion++;
+                
+                if (currentCard) {
+                    currentCard.classList.remove('active-card');
+                    currentCard.classList.add('hidden-card');
+                }
+
+                // Update dots
+                const dots = document.querySelectorAll('#progress-dots div');
+                if(currentQuestion <= totalQuestions) {
+                    dots[currentQuestion-1].classList.remove('bg-surface-variant');
+                    dots[currentQuestion-1].classList.add('bg-primary');
+                }
+
+                if (currentQuestion <= totalQuestions) {
+                    const nextCard = document.querySelector(`.quiz-card[data-question="${currentQuestion}"]`);
+                    if (nextCard) {
+                        setTimeout(() => {
+                            nextCard.classList.remove('hidden-card');
+                            nextCard.classList.add('active-card');
+                        }, 50); // slight delay for smooth transition
+                    }
+                } else {
+                    // Show final score
+                    document.getElementById('progress-dots').style.display = 'none';
+                    const scoreScreen = document.getElementById('score-screen');
+                    setTimeout(() => {
+                        scoreScreen.classList.remove('hidden-card');
+                        scoreScreen.classList.add('active-card');
+                    }, 50);
+                }
+            }
+        });
+    </script>
+</body></html>

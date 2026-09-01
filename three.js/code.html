@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+<!-- STITCH_THREEJS_START:ANIMATION_11 class="fixed inset-0 w-full h-full bg-transparent" -->
+<div class="fixed inset-0 w-full h-full bg-transparent" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_11" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_11');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  
+const scene = new THREE.Scene();
+const width = container.clientWidth || window.innerWidth;
+const height = container.clientHeight || window.innerHeight;
+const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+renderer.setSize(width, height);
+renderer.setPixelRatio(window.devicePixelRatio);
+container.appendChild(renderer.domElement);
+
+// Lighting
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+scene.scene.add(ambientLight);
+const pointLight = new THREE.PointLight(0xf4c2c2, 1.5);
+pointLight.position.set(5, 5, 5);
+scene.add(pointLight);
+
+// Heart Geometry
+const heartShape = new THREE.Shape();
+const x = 0, y = 0;
+heartShape.moveTo(x + 25, y + 25);
+heartShape.bezierCurveTo(x + 25, y + 25, x + 20, y, x, y);
+heartShape.bezierCurveTo(x - 30, y, x - 30, y + 35, x - 30, y + 35);
+heartShape.bezierCurveTo(x - 30, y + 55, x - 10, y + 77, x + 25, y + 95);
+heartShape.bezierCurveTo(x + 60, y + 77, x + 80, y + 55, x + 80, y + 35);
+heartShape.bezierCurveTo(x + 80, y + 35, x + 80, y, x + 50, y);
+heartShape.bezierCurveTo(x + 35, y, x + 25, y + 25, x + 25, y + 25);
+
+const extrudeSettings = { depth: 8, bevelEnabled: true, bevelSegments: 2, steps: 2, bevelSize: 1, bevelThickness: 1 };
+const geometry = new THREE.ExtrudeGeometry(heartShape, extrudeSettings);
+geometry.center();
+geometry.scale(0.01, 0.01, 0.01);
+
+const material = new THREE.MeshPhongMaterial({ 
+    color: 0x8c4b55, 
+    shininess: 100, 
+    specular: 0xffffff 
+});
+
+const hearts = [];
+for (let i = 0; i < 20; i++) {
+    const heart = new THREE.Mesh(geometry, material);
+    heart.position.set(
+        (Math.random() - 0.5) * 10,
+        (Math.random() - 0.5) * 10,
+        (Math.random() - 0.5) * 5
+    );
+    heart.rotation.set(Math.random() * Math.PI, Math.random() * Math.PI, 0);
+    heart.scale.setScalar(0.5 + Math.random() * 1.5);
+    heart.userData.speed = 0.01 + Math.random() * 0.02;
+    scene.add(heart);
+    hearts.push(heart);
+}
+
+camera.position.z = 5;
+
+function animate() {
+    requestAnimationFrame(animate);
+    hearts.forEach(heart => {
+        heart.rotation.y += heart.userData.speed;
+        heart.rotation.x += heart.userData.speed * 0.5;
+        heart.position.y += Math.sin(Date.now() * 0.001 + heart.position.x) * 0.002;
+    });
+    renderer.render(scene, camera);
+}
+
+window.addEventListener('resize', () => {
+    const w = container.clientWidth || window.innerWidth;
+    const h = container.clientHeight || window.innerHeight;
+    renderer.setSize(w, h);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+});
+
+animate();
+
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_11 -->
+</body>
+</html>
